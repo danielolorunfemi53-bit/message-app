@@ -1,114 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Message App</title>
+    <title>AI Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            margin: 0;
             font-family: Arial;
             background: #0f172a;
             color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
 
-        .container {
-            width: 90%;
-            max-width: 500px;
-            margin: 30px auto 0 auto;
+        /* HERO */
+        .hero {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(to right, #22c55e, #0f172a);
+        }
+
+        .hero h1 {
+            font-size: 2em;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
             background: #1e293b;
             padding: 20px;
             border-radius: 10px;
-            flex: 1;
+            width: 250px;
+        }
+
+        .card a {
+            display: block;
+            margin-top: 10px;
+            color: #22c55e;
+        }
+
+        /* BANNER */
+        .banner {
+            margin: 20px;
+            padding: 30px;
+            background: #22c55e;
+            color: black;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* MESSAGE APP */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
         }
 
         input, textarea {
             width: 90%;
             padding: 10px;
             margin: 10px 0;
-            border: none;
-            border-radius: 5px;
         }
 
         button {
+            padding: 10px;
             background: #22c55e;
             border: none;
-            padding: 10px;
             color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 50%;
         }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        li {
-            text-align: left;
-            margin: 5px 0;
-        }
-
-        /* Footer styling */
+        /* FOOTER */
         .footer {
-            background: #1e293b;
-            color: #cbd5e1;
-            margin-top: 70px;
+            text-align: center;
             padding: 20px;
-            border-top: 2px solid #22c55e;
-            flex-shrink: 0;
-        }
-
-        .footer h3 {
-            margin-bottom: 10px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            display: block;
-            background: #0f172a;
-            padding: 10px 15px;
-            border-radius: 5px;
-            color: #22c55e;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            background: #22c55e;
-            color: #0f172a;
-        }
-
-        @media screen and (max-width: 600px) {
-            .container {
-                width: 95%;
-                padding: 15px;
-            }
-
-            button {
-                width: 70%;
-            }
-
-            .footer {
-                margin-top: 90px;
-            }
+            margin-top: 30px;
+            background: #1e293b;
         }
     </style>
 </head>
 <body>
 
+<!-- HERO -->
+<div class="hero">
+    <h1>🔥 Welcome to My AI Hub</h1>
+    <p>Discover tools, movies, and more</p>
+    <button>Explore Now</button>
+</div>
+
+<!-- CARDS -->
+<div class="cards">
+    <div class="card">
+        <h3>AI Tools</h3>
+        <p>Explore powerful AI tools</p>
+        <a href="#">Visit</a>
+    </div>
+
+    <div class="card">
+        <h3>Movie Ads</h3>
+        <p>Watch trending movies</p>
+        <a href="#">Watch</a>
+    </div>
+
+    <div class="card">
+        <h3>My Projects</h3>
+        <p>Check my other websites</p>
+        <a href="#">Open</a>
+    </div>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+    🎬 Watch Unlimited Movies Now!
+</div>
+
+<!-- MESSAGE APP -->
 <div class="container">
-    <h1>💬 Message App</h1>
+    <h2>💬 Leave a Message</h2>
 
     <form method="POST">
         <input type="text" name="name" placeholder="Your name" required>
@@ -117,7 +140,6 @@
         <button type="submit">Send</button>
     </form>
 
-    <h2>Messages</h2>
     <ul>
         {% for msg in messages %}
             <li>{{ msg[0] }}: {{ msg[1] }}</li>
@@ -125,13 +147,9 @@
     </ul>
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-    <h3>Check these out:</h3>
-    <div class="footer-links">
-        <a href="https://your-ai-tools-website.com" target="_blank">🔥 AI Tool Hub</a>
-        <a href="https://your-movie-ad-website.com" target="_blank">🎬 Movie Ads</a>
-        <a href="https://your-other-website.com" target="_blank">💻 Other Website</a>
-    </div>
+    © 2026 Daniel AI Hub
 </div>
 
 </body>
