@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 import sqlite3
+import os  # Needed for Render
 
 app = Flask(__name__)
 
-# Initialize database
+# Database initialization
 def init_db():
     conn = sqlite3.connect('messages.db')
     c = conn.cursor()
@@ -21,7 +22,7 @@ def index():
     if request.method == 'POST':
         name = request.form.get('name')
         message = request.form.get('message')
-        if name and message:  # prevent empty messages
+        if name and message:
             c.execute("INSERT INTO messages VALUES (?, ?)", (name, message))
             conn.commit()
 
@@ -32,4 +33,6 @@ def index():
     return render_template('index.html', messages=messages)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Make it compatible with Render hosting
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
