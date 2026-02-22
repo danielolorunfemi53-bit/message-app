@@ -3,7 +3,6 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Database initialization
 def init_db():
     conn = sqlite3.connect('messages.db')
     c = conn.cursor()
@@ -21,6 +20,7 @@ def index():
     if request.method == 'POST':
         name = request.form.get('name')
         message = request.form.get('message')
+
         if name and message:
             c.execute("INSERT INTO messages VALUES (?, ?)", (name, message))
             conn.commit()
@@ -30,3 +30,6 @@ def index():
     conn.close()
 
     return render_template('index.html', messages=messages)
+
+# 👇 THIS LINE IS IMPORTANT FOR RENDER
+app = app
